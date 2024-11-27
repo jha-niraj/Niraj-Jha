@@ -1,19 +1,12 @@
 "use client"
 
-import { useState } from "react";
-import Image from "next/image";
 import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 import ShootingStars from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
-import { Menu, MenuItem } from "@/components/ui/navbar-menu";
-import { cn } from "@/libs/util";
 import Link from "next/link";
 
-import { Twitter, Github, Linkedin } from "lucide-react"
-import { FiGithub } from "react-icons/fi";
-import { FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaInstagram } from "react-icons/fa";
+import { Twitter, Github, Linkedin, Instagram } from "lucide-react"
+import Navbar from "@/components/navbar";
 
 export default function Home() {
 	const words = [
@@ -61,7 +54,6 @@ export default function Home() {
 
 	return (
 		<div className="h-screen bg-neutral-900 flex flex-col relative w-full">
-			<Navbar />
 			<div className="mt-48 flex flex-col items-center justify-center gap-10">
 				<div className="flex flex-col gap-2">
 					<div className="max-w-lg mx-auto flex flex-col md:flex-row items-center justify-center gap-2">
@@ -98,17 +90,22 @@ export default function Home() {
 						</Link>
 					</div>
 					<div className="flex w-full items-center justify-center gap-7">
-						<a href="https://github.com/jha-niraj" target="_blank" rel="noopener noreferrer">
-							<FiGithub className="text-white cursor-pointer"  size={28} />
-						</a>
-						<Link href="https://github.com/jha-niraj">
-							<FaLinkedin className="text-white" size={28} />
+						<Link href="https://github.com/jha-niraj" target="_blank">
+							<Github className="text-white cursor-pointer" size={28} />
 						</Link>
 						<Link href="https://github.com/jha-niraj">
-							<FaXTwitter className="text-white" size={28} />
+							<Linkedin className="text-white" size={28} />
 						</Link>
 						<Link href="https://github.com/jha-niraj">
-							<FaInstagram className="text-white" size={28} />
+							<Twitter className="text-white" size={28} />
+						</Link>
+						<Link href="https://github.com/jha-niraj">
+							<Instagram className="text-white" size={28} />
+						</Link>
+					</div>
+					<div>
+						<Link href="https://github.com/jha-niraj">
+							<Github className="text-white" size={28} />
 						</Link>
 					</div>
 				</div>
@@ -130,27 +127,3 @@ const AnimatedText = ({ text }: { text: string }) => {
 		</div>
 	);
 };
-
-function Navbar({ className }: { className?: string }) {
-	const [active, setActive] = useState<string | null>(null);
-	return (
-		<div
-			className={cn("fixed bottom-10 inset-x-0 max-w-xl mx-auto z-50", className)}
-		>
-			<Menu setActive={setActive}>
-				<Link href="/">
-					<MenuItem setActive={setActive} active={active} item="Home" />
-				</Link>
-				<Link href="/about">
-					<MenuItem setActive={setActive} active={active} item="About" />
-				</Link>
-				<Link href="/projects">
-					<MenuItem setActive={setActive} active={active} item="Projects" />
-				</Link>
-				<Link href="/contact">
-					<MenuItem setActive={setActive} active={active} item="Contact" />
-				</Link>
-			</Menu>
-		</div>
-	);
-}

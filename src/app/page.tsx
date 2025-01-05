@@ -55,11 +55,13 @@ export default function Page() {
 						<h2 className="text-xl font-bold">Skills</h2>
 					</BlurFade>
 					<div className="flex flex-wrap gap-1">
-						{DATA.skills.map((skill, id) => (
-							<BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-								<Badge key={skill}>{skill}</Badge>
-							</BlurFade>
-						))}
+						{
+							DATA.skills.map((skill, id) => (
+								<BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+									<Badge key={skill}>{skill}</Badge>
+								</BlurFade>
+							))
+						}
 					</div>
 				</div>
 			</section>
@@ -68,24 +70,26 @@ export default function Page() {
 					<BlurFade delay={BLUR_FADE_DELAY * 5}>
 						<h2 className="text-xl font-bold">Work Experience</h2>
 					</BlurFade>
-					{DATA.work.map((work, id) => (
-						<BlurFade
-							key={work.company}
-							delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-						>
-							<ResumeCard
+					{
+						DATA.work.map((work, id) => (
+							<BlurFade
 								key={work.company}
-								logoUrl={work.logoUrl}
-								altText={work.company}
-								title={work.company}
-								subtitle={work.title}
-								href={work.href}
-								badges={work.badges}
-								period={`${work.start} - ${work.end ?? "Present"}`}
-								description={work.description}
-							/>
-						</BlurFade>
-					))}
+								delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+							>
+								<ResumeCard
+									key={work.company}
+									logoUrl={work.logoUrl}
+									altText={work.company}
+									title={work.company}
+									subtitle={work.title}
+									href={work.href}
+									badges={work.badges}
+									period={`${work.start} - ${work.end ?? "Present"}`}
+									description={work.description!}
+								/>
+							</BlurFade>
+						))
+					}
 				</div>
 			</section>
 			<section id="education">
@@ -93,22 +97,24 @@ export default function Page() {
 					<BlurFade delay={BLUR_FADE_DELAY * 7}>
 						<h2 className="text-xl font-bold">Education</h2>
 					</BlurFade>
-					{DATA.education.map((education, id) => (
-						<BlurFade
-							key={education.school}
-							delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-						>
-							<ResumeCard
+					{
+						DATA.education.map((education, id) => (
+							<BlurFade
 								key={education.school}
-								href={education.href}
-								logoUrl={education.logoUrl}
-								altText={education.school}
-								title={education.school}
-								subtitle={education.degree}
-								period={`${education.start} - ${education.end}`}
-							/>
-						</BlurFade>
-					))}
+								delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+							>
+								<ResumeCard
+									key={education.school}
+									href={education.href}
+									logoUrl={education.logoUrl}
+									altText={education.school}
+									title={education.school}
+									subtitle={education.degree}
+									period={`${education.start} - ${education.end}`}
+								/>
+							</BlurFade>
+						))
+					}
 				</div>
 			</section>
 			<section id="projects">
@@ -123,36 +129,36 @@ export default function Page() {
 									Check out my latest work
 								</h2>
 								<p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-									I&apos;ve worked on a variety of projects, from simple
-									websites to complex web applications. Here are a few of my
-									favorites.
+									I&apos;ve worked on a varies number of projects ranging from the small and begineer ones to the complex Full Stack App.
 								</p>
 							</div>
 						</div>
 					</BlurFade>
 					<div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto">
-						{DATA.projects.map((project, id) => (
-							<BlurFade
-								key={project.title}
-								delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-							>
-								<ProjectCard
-									href={project.href}
+						{
+							DATA.projects.map((project, id) => (
+								<BlurFade
 									key={project.title}
-									title={project.title}
-									description={project.description}
-									dates={project.dates}
-									tags={project.technologies}
-									image={project.image}
-									video={project.video}
-									links={project.links}
-								/>
-							</BlurFade>
-						))}
+									delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+								>
+									<ProjectCard
+										href={project.href}
+										key={project.title}
+										title={project.title}
+										description={project.description}
+										dates={project.dates}
+										tags={project.technologies}
+										image={project.image}
+										video={project.video}
+										links={project.links}
+									/>
+								</BlurFade>
+							))
+						}
 					</div>
 				</div>
 			</section>
-			<section id="hackathons">
+			{/* <section id="hackathons">
 				<div className="space-y-12 w-full py-12">
 					<BlurFade delay={BLUR_FADE_DELAY * 13}>
 						<div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -194,7 +200,7 @@ export default function Page() {
 						</ul>
 					</BlurFade>
 				</div>
-			</section>
+			</section> */}
 			<section id="contact">
 				<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
 					<BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -206,15 +212,14 @@ export default function Page() {
 								Get in Touch
 							</h2>
 							<p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-								Want to chat? Just shoot me a dm{" "}
+								Want to chat? Just dm me {" "}
 								<Link
 									href={DATA.contact.social.X.url}
 									className="text-blue-500 hover:underline"
 								>
-									with a direct question on twitter
+									with your message
 								</Link>{" "}
-								and I&apos;ll respond whenever I can. I will ignore all
-								soliciting.
+								and I&apos;ll try to respond as soon as possible
 							</p>
 						</div>
 					</BlurFade>

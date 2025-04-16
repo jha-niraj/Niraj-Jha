@@ -8,9 +8,9 @@ export const DATA = {
 	location: "Mumbai, India",
 	locationLink: "https://www.google.com/maps/place/sanfrancisco",
 	description:
-		"Full Stack Developer passionate about making robust applications. I love building things and helping people.",
+		"Full Stack Developer | Passionate about Building Robust Applications | Front-End and Back-End development | Problem-Solving | Innovative Solutions | Building from Scratch | Helping People",
 	summary:
-		"I am currently in my sixth semester of my B.Tech currently focusing on building and scaling my own SaaS businesses. I am also working on a few open source projects and writing technical articles on my [blog](https://vichar-space.vercel.app).",
+		"I am currently in my sixth semester of B.Tech, focused on growing as a Full Stack Developer by building and scaling my own SaaS businesses. Alongside this, I love sharing insights on web development and emerging technologies. My expertise includes JavaScript, React, Node.js, and cloud platforms like AWS and Vercel. I am passionate about creating scalable, maintainable software and continuously improving my skills to deliver impactful solutions in the tech industry. I am also working on a few open source projects and writing technical articles on my [blog](https://vichar-space.vercel.app).",
 	avatarUrl: "/me.jpeg",
 	skills: [
 		"React.js",
@@ -24,7 +24,11 @@ export const DATA = {
 		"Supabase",
 		"Docker",
 		"C++",
-	],
+		"Redis",
+		"Problem Solving",
+		"Structured thinking",
+		"Algorithmic problem-solving"
+,	],
 	navbar: [
 		{ href: "/", icon: HomeIcon, label: "Home" },
 		{ href: "https://vichar-space.vercel.app", icon: NotebookIcon, label: "Blog" },
